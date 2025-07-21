@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import CursorGlow from './components/CursorGlow'
@@ -32,7 +32,7 @@ const testimonials = [
   },
   {
     id: 4,
-    content: "I’ve never worked with someone this fast and accurate. Highly recommended for startup founders.",
+    content: "I've never worked with someone this fast and accurate. Highly recommended for startup founders.",
     name: "Alex R.",
     role: "Startup CEO",
     image: "/hemant.jpg"
@@ -77,8 +77,8 @@ const TestimonialCarousel = () => {
         ref={scrollRef}
         className="flex gap-6 w-full overflow-x-auto scroll-smooth px-28"
         style={{
-          scrollbarWidth: 'none', // For Firefox
-          msOverflowStyle: 'none', // For IE and Edge
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
         }}
       >
         {testimonials.map((t) => (
@@ -123,9 +123,7 @@ const TestimonialCarousel = () => {
 }
 
 const HomeSection = () => (
-  <div className="relative w-full max-w-full px-10 ">
-
-
+  <div className="relative w-full max-w-full px-10 h-[calc(100vh-80px)] flex flex-col justify-center">
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -157,8 +155,10 @@ const sections = {
 }
 
 export default function Page() {
-  const [currentSection, setCurrentSection] = React.useState('home')
-  const [showOverlay, setShowOverlay] = React.useState(false)
+  const [currentSection, setCurrentSection] = useState('home')
+  const [showOverlay, setShowOverlay] = useState(false)
+  const [containerHeight, setContainerHeight] = useState('h-screen')
+  const containerRef = useRef(null)
 
   const navigateTo = (section) => {
     if (section === currentSection) return
@@ -169,12 +169,23 @@ export default function Page() {
     }, 700)
   }
 
+  useEffect(() => {
+    if (currentSection === 'projects' || currentSection === 'contact') {
+      setContainerHeight('min-h-screen')
+    } else {
+      setContainerHeight('h-screen')
+    }
+  }, [currentSection])
+
   return (
-    <div className="relative h-screen bg-gradient-to-br from-[#f5f5f5] via-[#d4d4d4] to-[#9ca3af] overflow-hidden font-panchangRegular">
+    <div
+      ref={containerRef}
+      className={`relative ${containerHeight} bg-gradient-to-br from-[#f5f5f5] via-[#d4d4d4] to-[#9ca3af] overflow-x-hidden font-panchangRegular`}
+    >
       <CursorGlow />
 
       {/* Navigation */}
-      <nav className="absolute top-8 right-10 flex gap-6 text-gray-800 font-medium text-lg z-20">
+      <nav className="fixed top-8 right-10 flex gap-6 text-gray-800 font-medium text-lg z-20">
         {['home', 'about', 'projects', 'contact'].map((section) => (
           <motion.button
             key={section}
@@ -195,11 +206,13 @@ export default function Page() {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.4 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="absolute -top-32 -left-32 w-[600px] h-[600px] bg-white/30 rounded-full blur-3xl pointer-events-none z-0"
+        className="fixed -top-32 -left-32 w-[600px] h-[600px] bg-white/30 rounded-full blur-3xl pointer-events-none z-0"
       />
 
       {/* Section Content */}
-      <div className="absolute bottom-10 left-10 right-10 z-10">
+      <div className={`absolute bottom-10 left-10 right-10 z-10 ${
+        currentSection === 'projects'  ? 'top-28' : ''
+      }`}>
         <motion.div
           key={currentSection}
           initial={{ opacity: 0, y: 40 }}
