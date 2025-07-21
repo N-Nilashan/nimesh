@@ -1,21 +1,43 @@
-@font-face{
-font-family:panchangRegular;
-src: url("../public/fonts/Panchang-Regular.woff");
+@font-face {
+  font-family: panchangRegular;
+  src: url("../public/fonts/Panchang-Regular.woff");
 }
 
 @font-face {
-font-family:panchangMedium;
-src: url("../public/fonts/Panchang-Medium.woff")
+  font-family: panchangMedium;
+  src: url("../public/fonts/Panchang-Medium.woff");
+}
+
+@font-face {
+font-family:inter;
+src: url("../public/fonts/Inter_18pt-Regular.ttf")
 }
 
 @import "tailwindcss";
 
-@theme{
---font-panchangRegular: panchangRegular,'sans-serif';
---font-panchangMedium: panchangMedium,'sans-serif'
+
+@theme {
+  --font-panchangRegular: panchangRegular, 'sans-serif';
+  --font-panchangMedium: panchangMedium, 'sans-serif';
+  --font-inter: inter, 'sans-serif';
 }
 
 body {
   cursor: url('/cursor.png'), auto;
+  font-family: var(--font-body);
+  background: linear-gradient(to bottom right, #f5f5f5, #d4d4d4, #9ca3af);
 }
 
+::selection {
+  background-color: #4fd1c5;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #4fd1c5;
+  color: #ffffff;
+}
+
+.paragraph-mask {
+  cursor: url('/mask.svg'), pointer !important;
+}

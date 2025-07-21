@@ -94,7 +94,7 @@ const TestimonialCarousel = () => {
               />
               <div>
                 <p className="text-sm font-semibold text-gray-800">{t.name}</p>
-                <p className="text-xs text-gray-600">{t.role}</p>
+                <p className="text-md text-gray-600 font-inter">{t.role}</p>
               </div>
             </div>
 
@@ -107,7 +107,7 @@ const TestimonialCarousel = () => {
               ))}
             </div>
 
-            <p className="text-sm italic text-gray-700">"{t.content}"</p>
+            <p className="text-lg italic text-gray-700 font-inter">"{t.content}"</p>
           </div>
         ))}
       </div>
@@ -123,7 +123,7 @@ const TestimonialCarousel = () => {
 }
 
 const HomeSection = () => (
-  <div className="relative w-full max-w-full px-10">
+  <div className="relative w-full max-w-full px-10 ">
 
 
     <motion.div
