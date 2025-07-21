@@ -140,7 +140,7 @@ const HomeSection = () => (
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="text-4xl sm:text-7xl font-bold leading-tight tracking-tight text-gray-900 whitespace-nowrap"
+      className="text-4xl sm:text-6xl font-bold leading-tight tracking-tight text-gray-900 whitespace-nowrap"
     >
       Fast. Animated.
       <br />
