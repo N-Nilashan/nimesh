@@ -1,213 +1,109 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Star } from 'lucide-react'
+import React, { useRef } from 'react'
+import { motion, useScroll, useSpring } from 'framer-motion'
 import CursorGlow from './components/CursorGlow'
-import TransitionOverlay from './components/TransitionOverlay'
 import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import sphereAnimation from '@/public/sphere-animation.json'
 import Lottie from 'lottie-react'
 
-// const testimonials = [
-//   {
-//     id: 1,
-//     content: "Nimesh built our site in half the expected time with perfect animations that increased our conversions by 30%.",
-//     name: "Sarah K.",
-//     role: "Design Director",
-//     image: "/hemant.jpg"
-//   },
-//   {
-//     id: 2,
-//     content: "The attention to detail in the micro-interactions made all the difference for our brand perception.",
-//     name: "James L.",
-//     role: "Brand Manager",
-//     image: "/hemant.jpg"
-//   },
-//   {
-//     id: 3,
-//     content: "Finally a developer who understands both technical excellence and aesthetic sensibility.",
-//     name: "Priya M.",
-//     role: "Creative Lead",
-//     image: "/hemant.jpg"
-//   },
-//   {
-//     id: 4,
-//     content: "I've never worked with someone this fast and accurate. Highly recommended for startup founders.",
-//     name: "Alex R.",
-//     role: "Startup CEO",
-//     image: "/hemant.jpg"
-//   },
-//   {
-//     id: 5,
-//     content: "The perfect blend of art and code. Our site became the benchmark in our niche.",
-//     name: "Ravi T.",
-//     role: "Product Designer",
-//     image: "/hemant.jpg"
-//   }
-// ]
-
-// const TestimonialCarousel = () => {
-//   const scrollRef = useRef(null)
-
-//   useEffect(() => {
-//     let animationFrameId
-//     const scroll = () => {
-//       if (scrollRef.current) {
-//         scrollRef.current.scrollLeft += 0.5
-//         if (
-//           scrollRef.current.scrollLeft + scrollRef.current.offsetWidth >=
-//           scrollRef.current.scrollWidth
-//         ) {
-//           scrollRef.current.scrollLeft = 0
-//         }
-//       }
-//       animationFrameId = requestAnimationFrame(scroll)
-//     }
-//     animationFrameId = requestAnimationFrame(scroll)
-//     return () => cancelAnimationFrame(animationFrameId)
-//   }, [])
-
-//   return (
-//     <div className="relative w-full overflow-hidden py-8">
-//       {/* Left and right fade overlays */}
-//       <div className="pointer-events-none absolute top-0 left-0 h-full w-24 bg-gradient-to-r from-[#f5f5f5] via-[#f5f5f5]/80 to-transparent z-10" />
-//       <div className="pointer-events-none absolute top-0 right-0 h-full w-24 bg-gradient-to-l from-[#f5f5f5] via-[#f5f5f5]/80 to-transparent z-10" />
-
-//       <div
-//         ref={scrollRef}
-//         className="flex gap-6 w-full overflow-x-auto scroll-smooth px-28"
-//         style={{
-//           scrollbarWidth: 'none',
-//           msOverflowStyle: 'none',
-//         }}
-//       >
-//         {testimonials.map((t) => (
-//           <div
-//             key={t.id}
-//             className="min-w-[300px] max-w-[300px] flex-shrink-0 bg-white/60 backdrop-blur-md border border-gray-300 rounded-xl p-4 shadow-md"
-//           >
-//             <div className="flex items-center gap-3 mb-2">
-//               <img
-//                 src={t.image}
-//                 alt={t.name}
-//                 className="w-10 h-10 rounded-full border border-white/70 object-cover"
-//               />
-//               <div>
-//                 <p className="text-sm font-semibold text-gray-800">{t.name}</p>
-//                 <p className="text-md text-gray-600 font-inter">{t.role}</p>
-//               </div>
-//             </div>
-
-//             <div className="flex mb-1">
-//               {[...Array(5)].map((_, i) => (
-//                 <Star
-//                   key={i}
-//                   className={`w-3 h-3 ${i < 4 ? 'fill-yellow-400' : 'text-gray-300'}`}
-//                 />
-//               ))}
-//             </div>
-
-//             <p className="text-lg italic text-gray-700 font-inter">"{t.content}"</p>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Hide scrollbar for WebKit browsers */}
-//       <style jsx>{`
-//         div::-webkit-scrollbar {
-//           display: none;
-//         }
-//       `}</style>
-//     </div>
-//   )
-// }
-
 const HomeSection = () => (
-  <div className=" overflow-hidden h-screen">
+  <section id="home" className="min-h-screen flex flex-col justify-center items-center py-16">
 
-    <motion.h1 className='font-semibold mt-[75px]'>
-      NIMESH NILASHAN
-    </motion.h1>
-    <motion.div className="flex items-center justify-center">
-      <Lottie
-        animationData={sphereAnimation}
-        loop
-        autoplay
-        className="w-[760px] h-[760px] md:w-[720px] md:h-[720px] -mb-[200px]"
-      />
-    </motion.div>
+      <motion.div
+        className="flex items-center justify-center -mt-28"
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <Lottie
+          animationData={sphereAnimation}
+          loop
+          autoplay
+          className="w-[760px] h-[760px] md:w-[720px] md:h-[720px] -mb-8 "
+        />
+      </motion.div>
 
-    <motion.h1
-      key="home"
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="text-4xl sm:text-4xl font-bold leading-tight tracking-tight text-gray-900 whitespace-nowrap mt-[140px] flex justify-between"
-    >
-      <span>Fast. <br></br>Animated.</span>
-
-      <span className="text-gray-900 font-bold">Websites<br></br> that Convert.</span>
-    </motion.h1>
-  </div>
+      <motion.h1
+        key="home"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="text-4xl sm:text-4xl font-bold leading-tight tracking-tight text-gray-900 whitespace-nowrap flex justify-between w-full max-w-6xl px-6 "
+      >
+        <span>Fast. <br />Animated.</span>
+        <span className="text-gray-900 font-bold">Websites<br /> that Convert.</span>
+      </motion.h1>
+  </section>
 )
 
-const sections = {
-  home: <HomeSection />,
-  about: <About />,
-  projects: <Projects />,
-  contact: <Contact />
-}
-
 export default function Page() {
-  const [currentSection, setCurrentSection] = useState('home')
-  const [showOverlay, setShowOverlay] = useState(false)
-  const [containerHeight, setContainerHeight] = useState('h-screen')
-  const containerRef = useRef(null)
+  const homeRef = useRef(null)
+  const projectsRef = useRef(null)
+  const aboutRef = useRef(null)
+  const contactRef = useRef(null)
 
-  const navigateTo = (section) => {
-    if (section === currentSection) return
-    setShowOverlay(true)
-    setTimeout(() => {
-      setCurrentSection(section)
-      setShowOverlay(false)
-    }, 700)
+  // Smooth scroll spring animation
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+
+  const navigateTo = (sectionRef) => {
+    sectionRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
   }
 
-  useEffect(() => {
-    if (currentSection === 'projects' || currentSection === 'contact') {
-      setContainerHeight('min-h-screen')
-    } else {
-      setContainerHeight('h-screen')
-    }
-  }, [currentSection])
-
   return (
-    <div
-      ref={containerRef}
-      className={`relative ${containerHeight} bg-gradient-to-br from-[#f5f5f5] via-[#4a4848] to-[#9ca3af] overflow-x-hidden font-panchangRegular`}
-    >
+    <div className="relative bg-gradient-to-br from-[#f5f5f5] via-[#4a4848] to-[#9ca3af] font-panchangRegular">
       <CursorGlow />
 
       {/* Navigation */}
-      <nav className={`${
-          currentSection === 'projects' ? 'absolute' : 'fixed'
-        } top-8 right-10 flex gap-6 text-gray-800 font-medium text-lg z-20 transition-all duration-300`}>
-        {['home', 'about', 'projects', 'contact'].map((section) => (
-          <motion.button
-            key={section}
-            onClick={() => navigateTo(section)}
-            whileHover={{ scale: 1.1, x: 2 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            className={`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black cursor-pointer rounded-sm ${
-              currentSection === section ? 'font-bold underline' : ''
-            }`}
+      <nav className="fixed top-0 left-0 right-0 z-20 bg-white/10 backdrop-blur-md border-b border-gray-300/30">
+        <div className="max-w-7xl mx-auto px-10 py-4 flex justify-between items-center">
+          <motion.h1
+            className="font-semibold text-2xl text-gray-800"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            {section.charAt(0).toUpperCase() + section.slice(1)}
-          </motion.button>
-        ))}
+            NIMESH NILASHAN
+          </motion.h1>
+
+          <div className="flex gap-6 text-gray-800 font-medium text-lg">
+            {[
+              { name: 'home', ref: homeRef },
+              { name: 'projects', ref: projectsRef },
+              { name: 'about', ref: aboutRef },
+              { name: 'contact', ref: contactRef },
+            ].map((section) => (
+              <motion.button
+                key={section.name}
+                onClick={() => navigateTo(section.ref)}
+                whileHover={{ scale: 1.1, x: 2 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black cursor-pointer rounded-sm capitalize"
+              >
+                {section.name}
+              </motion.button>
+            ))}
+          </div>
+        </div>
       </nav>
+
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-[#4fd1c5] z-30 origin-left"
+        style={{ scaleX }}
+      />
 
       {/* Background Blob */}
       <motion.div
@@ -217,23 +113,21 @@ export default function Page() {
         className="fixed -top-32 -left-32 w-[600px] h-[600px] bg-white/30 rounded-full blur-3xl pointer-events-none z-0"
       />
 
-      {/* Section Content */}
-      <div className={`absolute bottom-10 left-10 right-10 z-10 ${
-        currentSection === 'projects'  ? 'top-28' : ''
-      }`}>
-        <motion.div
-          key={currentSection}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.4 }}
-        >
-          {sections[currentSection]}
-        </motion.div>
+      {/* Sections */}
+      <div className="relative z-10 space-y-16">
+        <div ref={homeRef} className="pt-24">
+          <HomeSection />
+        </div>
+        <div ref={projectsRef} className="min-h-screen py-16 px-6">
+          <Projects />
+        </div>
+        <div ref={aboutRef} className="min-h-screen py-16 px-6">
+          <About />
+        </div>
+        <div ref={contactRef} className="min-h-screen py-16 px-6">
+          <Contact />
+        </div>
       </div>
-
-      {/* Transition Overlay */}
-      <TransitionOverlay isVisible={showOverlay} />
     </div>
   )
 }
