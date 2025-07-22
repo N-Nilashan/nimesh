@@ -53,3 +53,20 @@ h1, h2, h3 {
   margin: 0 auto;
   padding: 0 24px;
 }
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better transitions for buttons */
+button {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Custom selection color */
+::selection {
+  background: rgba(59, 130, 246, 0.5);
+  color: white;
+}

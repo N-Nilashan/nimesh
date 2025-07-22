@@ -1,128 +1,77 @@
 'use client'
-import React, { useRef } from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion'
-import CursorGlow from './components/CursorGlow'
-import About from './components/About'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
+import { motion } from 'framer-motion'
 import Lottie from 'lottie-react'
 import sphereAnimation from '@/public/sphere-animation.json'
+import Navbar from './components/Navbar'
 
-const HomeSection = () => (
-  <section id="home" className="min-h-screen flex flex-col justify-center items-center py-16">
-    <div className="container">
-      <motion.div
-        className="flex justify-center -mt-20"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <Lottie
-          animationData={sphereAnimation}
-          loop
-          autoplay
-          className="w-[400px] h-[400px] md:w-[600px] md:h-[600px]"
-        />
-      </motion.div>
-
-      <motion.h1
-        key="home"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="text-4xl md:text-5xl font-bold text-center text-[var(--color-secondary)]"
-      >
-        Fast. Animated. Websites that Convert.
-      </motion.h1>
-    </div>
-  </section>
-)
-
-export default function Page() {
-  const homeRef = useRef(null)
-  const projectsRef = useRef(null)
-  const aboutRef = useRef(null)
-  const contactRef = useRef(null)
-
-  const { scrollYProgress } = useScroll()
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
-
-  const navigateTo = (sectionRef) => {
-    sectionRef.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    })
-  }
-
+const HomePage = () => {
   return (
-    <div className="relative">
-      <CursorGlow />
+    <div className="min-h-screen w-full bg-black relative overflow-hidden">
+      {/* Night Sky Background with Stars */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='stars' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='white' cx='25' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='75' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='25' cy='75' r='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='black'/%3E%3Crect width='100%25' height='100%25' fill='url(%23stars)' opacity='0.5'/%3E%3C/svg%3E")`
+        }}
+      />
 
-      <nav className="fixed top-0 left-0 right-0 z-20 bg-[var(--color-background)]/80 backdrop-blur-md border-b border-[var(--color-background-secondary)] h-[50px] flex items-center">
-        <div className="container py-4 flex justify-between items-center">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Main Content */}
+      <main className="relative flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4">
+        {/* Animation Background */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center z-0"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.7, scale: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+        >
+          <Lottie
+            animationData={sphereAnimation}
+            loop
+            autoplay
+            className="w-full max-w-[600px] opacity-30 pointer-events-none"
+          />
+        </motion.div>
+
+        {/* Text Content Overlay */}
+        <div className="relative z-10 text-center space-y-6 max-w-4xl">
           <motion.h1
-            className="text-xl font-semibold text-[var(--color-secondary)]"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            className="text-white text-4xl md:text-4xl font-bold leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
           >
-            NIMESH NILASHAN
+            I build websites that move fast <br className="hidden md:block" />and sell hard
           </motion.h1>
 
-          <div className="flex gap-6 text-[var(--color-secondary)] font-medium text-lg">
-            {[
-              { name: 'home', ref: homeRef },
-              { name: 'projects', ref: projectsRef },
-              { name: 'about', ref: aboutRef },
-              { name: 'contact', ref: contactRef },
-            ].map((section) => (
-              <motion.button
-                key={section.name}
-                onClick={() => navigateTo(section.ref)}
-                whileHover={{ scale: 1.1, color: 'var(--color-accent)' }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-                className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] capitalize"
-              >
-                {section.name}
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </nav>
+          <motion.p
+            className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            I help startups and brands turn visitors into users with clean code and sharp animations.
+          </motion.p>
 
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[var(--color-accent)] z-30 origin-left"
-        style={{ scaleX }}
-      />
-
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.2 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className="fixed -top-32 -left-32 w-[400px] h-[400px] bg-[var(--color-background-secondary)]/30 rounded-full blur-3xl pointer-events-none z-0"
-      />
-
-      <div className="space-y-16">
-        <div ref={homeRef}>
-          <HomeSection />
+          <motion.div
+            className="flex flex-wrap gap-4 justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
+          >
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105">
+              Get in touch
+            </button>
+            <button className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105">
+              View projects
+            </button>
+          </motion.div>
         </div>
-        <div ref={projectsRef} className="py-16">
-          <Projects />
-        </div>
-        <div ref={aboutRef} className="py-16">
-          <About />
-        </div>
-        <div ref={contactRef} className="py-16">
-          <Contact />
-        </div>
-      </div>
+      </main>
     </div>
   )
 }
+
+export default HomePage
