@@ -368,7 +368,7 @@ const LandingPagesCarousel = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-500 to-gray-500 rounded-lg hover:from-amber-600 hover:to-gray-600 focus:ring-4 focus:outline-none focus:ring-purple-300 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-800 to-gray-900/90 rounded-lg hover:from-amber-600 hover:to-gray-600 focus:ring-4 focus:outline-none focus:ring-purple-300 transition-all duration-300 transform hover:scale-105"
                   >
                     View Project
                     <svg
