@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.7.1",
     "@react-three/drei": "^10.5.1",
     "@react-three/fiber": "^9.2.0",
     "framer-motion": "^12.23.6",

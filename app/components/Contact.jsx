@@ -46,8 +46,7 @@ const Contact = () => {
       transition={{ duration: 0.6 }}
       className="relative px-6 md:px-10 py-16 max-w-7xl mx-auto text-gray-900 overflow-hidden"
     >
-      {/* Decorative blobs */}
-     
+
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

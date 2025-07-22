@@ -1,6 +1,7 @@
 // app/layout.js
 import './globals.css'
 
+
 export const metadata = {
   title: "Nimesh Nilashan - Front-End Developer",
   description: "Handcrafted websites using Next.js, TailwindCSS, and Framer Motion. Built for personal brands & small businesses.",

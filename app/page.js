@@ -185,7 +185,9 @@ export default function Page() {
       <CursorGlow />
 
       {/* Navigation */}
-      <nav className="fixed top-8 right-10 flex gap-6 text-gray-800 font-medium text-lg z-20">
+      <nav className={`${
+          currentSection === 'projects' ? 'absolute' : 'fixed'
+        } top-8 right-10 flex gap-6 text-gray-800 font-medium text-lg z-20 transition-all duration-300`}>
         {['home', 'about', 'projects', 'contact'].map((section) => (
           <motion.button
             key={section}

@@ -37,7 +37,3 @@ body {
   background-color: #4fd1c5;
   color: #ffffff;
 }
-
-.paragraph-mask {
-  cursor: url('/mask.svg'), pointer !important;
-}
