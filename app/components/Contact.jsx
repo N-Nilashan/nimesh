@@ -51,7 +51,7 @@ const Contact = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute -bottom-16 -left-16 w-[250px] h-[250px] bg-[#4fd1c5]/20 rounded-full blur-2xl z-0"
+        className="absolute -bottom-16 -left-16 w-[250px] h-[250px]  rounded-full blur-2xl z-0"
       />
 
       {/* Force entire container down by 50px */}
