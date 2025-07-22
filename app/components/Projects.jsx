@@ -70,7 +70,7 @@ const fullStackApps = [
   {
     id: 4,
     title: "Apple Site Clone",
-    description: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects, showcasing advanced front-end development and interactive design skills.",
+    description: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects, showcasing advanced front-end development and interactive extraction.",
     image: "/apple.png",
     date: "November 20, 2024",
     techStack: ["Next.js", "Three.js", "GSAP", "TailwindCSS"],
@@ -102,146 +102,76 @@ const sectionVariants = {
 }
 
 const cardVariants = {
-  initial: {
-    opacity: 1,
-    y: 0
-  },
+  initial: { opacity: 1, y: 0 },
   hover: {
     opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-}
-
-const imageVariants = {
-  initial: {
-    opacity: 1,
-    scale: 1
-  },
-  hover: {
-    opacity: 0,
-    scale: 1.05,
-    transition: {
-      duration: 0.3
-    }
-  }
-}
-
-const contentVariants = {
-  initial: {
-    opacity: 0,
-    y: 20
-  },
-  hover: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.3
-    }
+    y: -5,
+    transition: { duration: 0.3 }
   }
 }
 
 const FullStackBentoGrid = () => {
   return (
-    <motion.section variants={sectionVariants} className="relative z-10 mb-32">
-      <div className="text-center mb-12">
-        <p
-          className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-gray-900/90 to-amber-950 bg-clip-text text-transparent tracking-tight"
-          style={{ fontFamily: 'var(--font-panchangMedium)' }}
-        >
-          Full-Stack Applications
-        </p>
+    <motion.section variants={sectionVariants} className="container mb-16 ">
+      <h2 className="text-4xl font-bold text-center text-[var(--color-primary)] mb-8 mt-40">
+        Full-Stack Applications
+      </h2>
 
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 -mb-[130px] gap-4 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {fullStackApps.map((project) => (
           <motion.div
             key={project.id}
-            className="relative h-80 rounded-xl overflow-hidden group"
+            className="relative h-80 rounded-xl overflow-hidden bg-[var(--color-background)] border border-[var(--color-background-secondary)]"
             initial="initial"
             whileHover="hover"
             variants={cardVariants}
           >
-            {/* Grain texture overlay */}
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxmZUNvbXBvc2l0ZSBpZD0ibm9pc2UiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIG9wZXJhdG9yPSJvdmVybGF5IiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC4wNSIgbnVtT2N0YXZlcz0iNCIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIxIDAgMCAwIDAgMCAxIDAgMCAwIDAgMCAxIDAgMCAwIDAgMCAwLjAzIDAiLz48L2ZlQ29tcG9zaXRlPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjbmdpbnNlKSIgb3BhY2l0eT0iMC4wMiIvPjwvc3ZnPg==')] opacity-10 pointer-events-none z-10" />
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+            />
+            <motion.div
+              className="absolute inset-0 p-6 flex flex-col bg-[var(--color-secondary)]/80 text-white"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-xl font-bold">{project.title}</h3>
+                <span className="text-sm px-2 py-1 bg-[var(--color-background)]/20 rounded-full">
+                  {project.category}
+                </span>
+              </div>
 
-            {/* Animated gradient border */}
-            <div className="absolute inset-0 rounded-xl p-[1px] bg-gradient-to-br from-purple-500/30 via-transparent to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0">
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10 animate-gradient-shift bg-[length:200%_200%]"></div>
-            </div>
+              <p className="text-mdI help brands and startups stand out online by creating fast, animated websites with modern, high-conversion front-end design. With over two years of experience, I blend technical precision with creative design to craft engaging, performant UI/UX. My focus on sleek micro-interactions and functional aesthetics has driven client conversions by up to 30%, and I’m passionate about pushing the boundaries of web design to deliver exceptional digital experiences. mb-4 line-clamp-3">{project.description}</p>
 
-            {/* Main card content */}
-            <div className="relative h-full w-full bg-white rounded-xl shadow-lg overflow-hidden">
-              {/* Image Cover */}
-              <motion.div
-                className="absolute inset-0 w-full h-full"
-                variants={imageVariants}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-
-              {/* Content */}
-              <motion.div
-                className="absolute inset-0 p-6 flex flex-col bg-gradient-to-br from-gray-900/90 to-amber-800 text-white"
-                variants={contentVariants}
-              >
-                <div className="flex justify-between items-start mb-4">
-                  <h3
-                    className="text-xl font-bold"
-                    style={{ fontFamily: 'var(--font-panchangMedium)' }}
-                  >
-                    {project.title}
-                  </h3>
-                  <span className="text-sm px-2 font-inter py-1 bg-white/20 rounded-full">
-                    {project.category}
-                  </span>
-                </div>
-
-                <p className="text-md mb-4 line-clamp-3 font-inter">
-                  {project.description}
-                </p>
-
-                <div className="mt-auto">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.techStack.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs px-2 py-1 bg-white/20 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs opacity-80">{project.date}</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium px-3 py-2 bg-white text-purple-800 rounded-lg hover:bg-white/90 transition-colors"
+              <div className="mt-auto">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.techStack.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="text-xs px-2 py-1 bg-[var(--color-background)]/20 rounded-full"
                     >
-                      View Project
-                    </a>
-                  </div>
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            </div>
 
-            {/* Dynamic shadow */}
-            <div className="absolute inset-0 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 opacity-0 group-hover:opacity-100 -z-10" style={{
-              background: 'radial-gradient(at center center, rgba(120, 113, 255, 0.3) 0%, rgba(0, 0, 0, 0) 70%)',
-              transform: 'translateZ(0)'
-            }}></div>
+                <div className="flex justify-between items-center">
+                  <span className="text-xs opacity-80">{project.date}</span>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-3 py-2 bg-[var(--color-accent)] text-white rounded-lg hover:bg-[var(--color-accent)]/90"
+                  >
+                    View Project
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         ))}
       </div>
@@ -256,7 +186,7 @@ const LandingPagesCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % landingPages.length)
-    }, 2000)
+    }, 3000)
     return () => clearInterval(interval)
   }, [])
 
@@ -275,25 +205,20 @@ const LandingPagesCarousel = () => {
   }
 
   return (
-    <motion.section variants={sectionVariants} className="relative z-10 mb-32 -mt-[50px]">
-      <div className="relative mt-[10px] mx-auto max-w-full sm:max-w-4xl md:max-w-6xl h-[32rem] sm:min-h-[40rem]">
-        <div className="text-center mb-8">
-           <p
-          className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-gray-900/90 to-amber-950 bg-clip-text text-transparent tracking-tight"
-          style={{ fontFamily: 'var(--font-panchangMedium)' }}
-        >
-          Landing Pages
-        </p>
-        </div>
+    <motion.section variants={sectionVariants} className="container mb-16">
+      <h2 className="text-4xl font-bold text-center text-[var(--color-primary)] mb-8">
+        Landing Pages
+      </h2>
 
+      <div className="relative h-[400px]">
         <button
           onClick={prevSlide}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-background)] rounded-full p-2 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
           disabled={isTransitioning}
           aria-label="Previous slide"
         >
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600"
+            className="w-5 h-5 text-[var(--color-secondary)]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -304,12 +229,12 @@ const LandingPagesCarousel = () => {
 
         <button
           onClick={nextSlide}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-40 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-[var(--color-background)] rounded-full p-2 shadow-md hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
           disabled={isTransitioning}
           aria-label="Next slide"
         >
           <svg
-            className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600"
+            className="w-5 h-5 text-[var(--color-secondary)]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -318,49 +243,42 @@ const LandingPagesCarousel = () => {
           </svg>
         </button>
 
-        <div
-          className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl p-4 sm:p-8"
-          style={{ perspective: '1000px' }}
-        >
+        <div className="relative w-full h-full flex items-center justify-center overflow-hidden rounded-xl">
           {landingPages.map((project, index) => (
             <div
               key={project.id}
               className="absolute transition-all duration-500 ease-in-out"
               style={getCardStyle(index, currentIndex, landingPages.length)}
             >
-              <div className="w-72 sm:w-80 bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="w-80 bg-[var(--color-background)] border border-[var(--color-background-secondary)] rounded-xl shadow-md hover:shadow-lg">
                 <div className="overflow-hidden rounded-t-xl">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={320}
                     height={160}
-                    className="w-full h-36 sm:h-40 object-cover transition-transform duration-300 hover:scale-105"
+                    className="w-full h-40 object-cover"
                   />
                 </div>
                 <div className="p-4">
-                  <h5
-                    className="mb-2 text-lg sm:text-xl font-bold tracking-tight text-gray-900"
-                    style={{ fontFamily: 'var(--font-panchangMedium)' }}
-                  >
+                  <h5 className="mb-2 text-xl font-bold text-[var(--color-secondary)]">
                     {project.title}
                   </h5>
-
-                  <p className="mb-3 font-normal text-gray-700 text-sm line-clamp-2 font-inter">
+                  <p className="mb-3 text-sm text-[var(--color-secondary)]/80 line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="mb-4 flex flex-wrap gap-1">
+                  <div className="mb-4 flex flex-wrap gap-2">
                     {project.techStack.slice(0, 6).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 text-xs bg-gradient-to-r from-amber-50 to-gray-100 text-amber-800 rounded-full border border-purple-200"
+                        className="px-2 py-1 text-xs bg-[var(--color-background-secondary)]/50 text-[var(--color-secondary)] rounded-full"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.techStack.length > 6 && (
-                      <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-full">
-                        +{project.techStack.length - 3}
+                      <span className="px-2 py-1 text-xs bg-[var(--color-background-secondary)]/50 text-[var(--color-secondary)] rounded-full">
+                        +{project.techStack.length - 6}
                       </span>
                     )}
                   </div>
@@ -368,13 +286,11 @@ const LandingPagesCarousel = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-800 to-gray-900/90 rounded-lg hover:from-amber-600 hover:to-gray-600 focus:ring-4 focus:outline-none focus:ring-purple-300 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center px-3 py-2 text-sm text-white bg-[var(--color-accent)] rounded-lg hover:bg-[var(--color-accent)]/90"
                   >
                     View Project
                     <svg
-                      className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-3.5 h-3.5 ml-2"
                       fill="none"
                       viewBox="0 0 14 10"
                     >
@@ -404,7 +320,7 @@ const Projects = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="text-gray-900 max-w-7xl mx-auto px-6 py-16 h-auto"
+      className="py-16"
     >
       <LandingPagesCarousel />
       <FullStackBentoGrid />
@@ -425,39 +341,31 @@ function getCardStyle(index, currentIndex, total) {
       transform: 'translateX(0) scale(1) rotateY(0deg)',
       opacity: 1,
       zIndex: 30,
-      filter: 'none',
       transition: 'transform 0.5s ease',
-      transformStyle: 'preserve-3d',
     }
   }
   if (abs === 1) {
-    const rotateY = diff < 0 ? 'rotateY(15deg)' : 'rotateY(-15deg)'
+    const rotateY = diff < 0 ? 'rotateY(10deg)' : 'rotateY(-10deg)'
     return {
-      transform: `translateX(${diff > 0 ? '80%' : '-80%'}) scale(0.8) ${rotateY}`,
-      opacity: 0.7,
+      transform: `translateX(${diff > 0 ? '50%' : '-50%'}) scale(0.85) ${rotateY}`,
+      opacity: 0.8,
       zIndex: 20,
-      filter: 'blur(1px)',
       transition: 'transform 0.5s ease',
-      transformStyle: 'preserve-3d',
     }
   }
   if (abs === 2) {
-    const rotateY = diff < 0 ? 'rotateY(15deg)' : 'rotateY(-15deg)'
+    const rotateY = diff < 0 ? 'rotateY(10deg)' : 'rotateY(-10deg)'
     return {
-      transform: `translateX(${diff > 0 ? '140%' : '-140%'}) scale(0.65) ${rotateY}`,
-      opacity: 0.4,
+      transform: `translateX(${diff > 0 ? '100%' : '-100%'}) scale(0.7) ${rotateY}`,
+      opacity: 0.5,
       zIndex: 10,
-      filter: 'blur(2px)',
       transition: 'transform 0.5s ease',
-      transformStyle: 'preserve-3d',
     }
   }
   return {
-    transform: `translateX(${diff > 0 ? '200%' : '-200%'}) scale(0.5) rotateY(0deg)`,
+    transform: `translateX(${diff > 0 ? '150%' : '-150%'}) scale(0.6) rotateY(0deg)`,
     opacity: 0,
     zIndex: 0,
-    filter: 'blur(3px)',
     transition: 'transform 0.5s ease',
-    transformStyle: 'preserve-3d',
   }
 }

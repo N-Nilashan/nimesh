@@ -1,9 +1,8 @@
 'use client'
-
 import { motion } from 'framer-motion'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { Mail, Linkedin, Github, Twitter, CheckCircle } from 'lucide-react'
+import { Mail, Github, Twitter, CheckCircle } from 'lucide-react'
 import Lottie from 'lottie-react'
 import globeAnimation from '@/public/globe-animation.json'
 
@@ -43,66 +42,59 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="relative px-6 md:px-10 py-16 max-w-7xl mx-auto text-gray-900 overflow-hidden"
+      className="container py-16"
     >
       <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute -bottom-16 -left-16 w-[250px] h-[250px] rounded-full blur-2xl z-0"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.2 }}
+        transition={{ duration: 1 }}
+        className="absolute -bottom-16 -left-16 w-[200px] h-[200px] bg-[var(--color-background-secondary)]/30 rounded-full blur-2xl z-0"
       />
 
-      <div
-        style={{ position: 'relative', top: '50px' }}
-        className="relative flex flex-col-reverse md:flex-row items-center justify-center gap-12 z-10"
-      >
-        {/* Lottie animation (LEFT) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="w-full max-w-2xl"
+          className="flex justify-center"
         >
-          <Lottie animationData={globeAnimation} loop autoplay />
+          <Lottie animationData={globeAnimation} loop autoplay className="w-[300px] h-[300px]" />
         </motion.div>
 
-        {/* Form (RIGHT) */}
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-xl bg-gradient-to-br from-white/20 to-white/40 backdrop-blur-lg border border-white/30 rounded-2xl p-8 shadow-lg"
+          className="bg-[var(--color-background)]/80 backdrop-blur-lg border border-[var(--color-background-secondary)] rounded-xl p-8"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Mail className="w-8 h-8 text-[#4fd1c5]" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-panchangMedium)' }}>
+            <Mail className="w-7 h-7 text-[var(--color-accent)]" />
+            <h2 className="text-3xl font-bold text-[var][--color-primary)]">
               Get in Touch
             </h2>
           </div>
 
-          <p className="mb-6 text-white/80 text-base md:text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter)' }}>
-            Ready to create something extraordinary? <br /> Send me a message, and let's make it happen.
+          <p className="mb-6 text-lg text-[var(--color-secondary)]/80">
+            Ready to create something extraordinary? Send me a message, and let's make it happen.
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-            {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
+              <label htmlFor="name" className="block text-sm font-semibold text-[var(--color-secondary)]/80 uppercase mb-1">
                 Name
               </label>
               <input
                 id="name"
                 type="text"
                 {...register('name', { required: 'Name is required' })}
-                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md placeholder:text-gray-600 font-inter"
+                className="w-full px-4 py-2 bg-[var(--color-background)] border border-[var(--color-background-secondary)] rounded-md focus:ring-2 focus:ring-[var(--color-accent)] focus:outline-none transition placeholder:text-[var(--color-secondary)]/60"
                 placeholder="Your name"
               />
-              {errors.name && <p className="text-sm text-red-300 mt-1">{errors.name.message}</p>}
+              {errors.name && <p className="text-sm text-red-400 mt-1">{errors.name.message}</p>}
             </div>
 
-            {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
+              <label htmlFor="email" className="block text-sm font-semibold text-[var(--color-secondary)]/80 uppercase mb-1">
                 Email
               </label>
               <input
@@ -115,35 +107,33 @@ const Contact = () => {
                     message: 'Invalid email address',
                   },
                 })}
-                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md placeholder:text-gray-600 font-inter"
+                className="w-full px-4 py-2 bg-[var(--color-background)] border border-[var(--color-background-secondary)] rounded-md focus:ring-2 focus:ring-[var(--color-accent)] focus:outline-none transition placeholder:text-[var(--color-secondary)]/60"
                 placeholder="your.email@example.com"
               />
-              {errors.email && <p className="text-sm text-red-300 mt-1">{errors.email.message}</p>}
+              {errors.email && <p className="text-sm text-red-400 mt-1">{errors.email.message}</p>}
             </div>
 
-            {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
+              <label htmlFor="message" className="block text-sm font-semibold text-[var(--color-secondary)]/80 uppercase mb-1">
                 Message
               </label>
               <textarea
                 id="message"
                 rows={4}
                 {...register('message', { required: 'Message is required' })}
-                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md font-inter placeholder:text-gray-600"
+                className="w-full px-4 py-2 bg-[var(--color-background)] border border-[var(--color-background-secondary)] rounded-md focus:ring-2 focus:ring-[var(--color-accent)] focus:outline-none transition placeholder:text-[var(--color-secondary)]/60"
                 placeholder="Your message here..."
               />
-              {errors.message && <p className="text-sm text-red-300 mt-1">{errors.message.message}</p>}
+              {errors.message && <p className="text-sm text-red-400 mt-1">{errors.message.message}</p>}
             </div>
 
-            {/* Submit */}
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
               className={`w-full flex items-center justify-center gap-2 px-6 py-2 text-white rounded-md font-semibold transition ${
-                isSubmitting ? 'bg-[#4fd1c5]/60 cursor-not-allowed' : 'bg-[#4fd1c5] hover:bg-[#38b2ac]'
+                isSubmitting ? 'bg-[var(--color-accent)]/60 cursor-not-allowed' : 'bg-[var(--color-accent)] hover:bg-[var(--color-accent)]/90'
               }`}
             >
               {isSubmitting ? (
@@ -163,7 +153,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center gap-2 text-green-300 mt-3 font-medium"
+                className="flex items-center justify-center gap-2 text-green-400 mt-3 font-medium"
                 role="status"
                 aria-live="polite"
               >
@@ -173,7 +163,7 @@ const Contact = () => {
           </form>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-white/80 mb-3">Or connect with me on:</p>
+            <p className="text-sm text-[var(--color-secondary)]/80 mb-3">Or connect with me on:</p>
             <div className="flex justify-center gap-4">
               {socials.map((social, i) => (
                 <motion.a
@@ -184,8 +174,7 @@ const Contact = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
-                  whileHover={{ scale: 1.2, color: '#4fd1c5' }}
-                  className="text-white/80 hover:text-white"
+                  whileHover={{ scale: 1.1, color: 'var(--color-accent)' }}
                 >
                   {social.icon}
                 </motion.a>
@@ -193,9 +182,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <p className="mt-4 text-center text-sm text-white/80">
+          <p className="mt-4 text-center text-sm text-[var(--color-secondary)]/80">
             Prefer email? Reach me at{' '}
-            <a href="mailto:informal.nimesh@gmail.com" className="text-[#0d6c63] hover:underline">
+            <a href="mailto:informal.nimesh@gmail.com" className="text-[var(--color-accent)] hover:underline">
               informal.nimesh@gmail.com
             </a>
           </p>

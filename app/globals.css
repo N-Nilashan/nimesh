@@ -9,31 +9,47 @@
 }
 
 @font-face {
-font-family:inter;
-src: url("../public/fonts/Inter_18pt-Regular.ttf")
+  font-family: inter;
+  src: url("../public/fonts/Inter_18pt-Regular.ttf");
 }
 
 @import "tailwindcss";
-
 
 @theme {
   --font-panchangRegular: panchangRegular, 'sans-serif';
   --font-panchangMedium: panchangMedium, 'sans-serif';
   --font-inter: inter, 'sans-serif';
+  --color-primary: #92400e; /* amber-800 */
+  --color-secondary: #1f2937; /* gray-900 */
+  --color-accent: #2dd4bf; /* teal-400 */
+  --color-background: #f9fafb; /* gray-50 */
+  --color-background-secondary: #e5e7eb; /* gray-200 */
 }
 
 body {
   cursor: url('/cursor.png'), auto;
-  font-family: var(--font-body);
-  background: linear-gradient(to bottom right, #f5f5f5, #d4d4d4, #9ca3af);
+  font-family: var(--font-inter);
+  background: var(--color-background);
+  color: var(--color-secondary);
+  line-height: 1.75;
 }
 
 ::selection {
-  background-color: #4fd1c5;
+  background-color: var(--color-accent);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #4fd1c5;
+  background-color: var(--color-accent);
   color: #ffffff;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-panchangMedium);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
 }

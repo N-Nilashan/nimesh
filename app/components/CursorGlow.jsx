@@ -9,11 +9,11 @@ const CursorGlow = () => {
       if (!blob.current) return
       blob.current.animate(
         {
-          left: `${e.clientX - 100}px`,
-          top: `${e.clientY - 100}px`,
+          left: `${e.clientX - 50}px`,
+          top: `${e.clientY - 50}px`,
         },
         {
-          duration: 800,
+          duration: 600,
           fill: 'forwards',
           easing: 'ease-out',
         }
@@ -27,7 +27,7 @@ const CursorGlow = () => {
   return (
     <div
       ref={blob}
-      className="pointer-events-none fixed top-0 left-0 w-[200px] h-[200px] bg-[#ffffff80] rounded-full blur-3xl opacity-30 z-0"
+      className="pointer-events-none fixed top-0 left-0 w-[100px] h-[100px] bg-[var(--color-accent)]/20 rounded-full blur-2xl opacity-20 z-0"
     />
   )
 }
