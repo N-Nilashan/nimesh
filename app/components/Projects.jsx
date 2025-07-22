@@ -344,23 +344,20 @@ const LandingPagesCarousel = () => {
                   >
                     {project.title}
                   </h5>
-                  <div className="flex justify-between items-center mb-2 text-sm text-gray-600">
-                    <span>{project.date}</span>
-                    <span className="px-2 py-1 bg-gray-100 rounded-full">{project.category}</span>
-                  </div>
+
                   <p className="mb-3 font-normal text-gray-700 text-sm line-clamp-2 font-inter">
                     {project.description}
                   </p>
                   <div className="mb-4 flex flex-wrap gap-1">
-                    {project.techStack.slice(0, 3).map((tech, techIndex) => (
+                    {project.techStack.slice(0, 6).map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 text-xs bg-gradient-to-r from-purple-100 to-blue-100 text-purple-800 rounded-full border border-purple-200"
+                        className="px-2 py-1 text-xs bg-gradient-to-r from-amber-50 to-gray-100 text-amber-800 rounded-full border border-purple-200"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.techStack.length > 3 && (
+                    {project.techStack.length > 6 && (
                       <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded-full">
                         +{project.techStack.length - 3}
                       </span>
@@ -370,7 +367,7 @@ const LandingPagesCarousel = () => {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg hover:from-purple-600 hover:to-blue-600 focus:ring-4 focus:outline-none focus:ring-purple-300 transition-all duration-300 transform hover:scale-105"
+                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-amber-500 to-gray-500 rounded-lg hover:from-amber-600 hover:to-gray-600 focus:ring-4 focus:outline-none focus:ring-purple-300 transition-all duration-300 transform hover:scale-105"
                   >
                     View Project
                     <svg

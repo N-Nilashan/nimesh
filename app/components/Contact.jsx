@@ -13,7 +13,6 @@ const Contact = () => {
   const [success, setSuccess] = useState(false)
 
   const socials = [
-
     { name: 'GitHub', icon: <Github className="w-5 h-5" />, url: 'https://github.com/N-Nilashan' },
     { name: 'Twitter', icon: <Twitter className="w-5 h-5" />, url: 'https://x.com/N_Nilashan' },
   ]
@@ -46,15 +45,13 @@ const Contact = () => {
       transition={{ duration: 0.6 }}
       className="relative px-6 md:px-10 py-16 max-w-7xl mx-auto text-gray-900 overflow-hidden"
     >
-
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 1.2 }}
-        className="absolute -bottom-16 -left-16 w-[250px] h-[250px]  rounded-full blur-2xl z-0"
+        className="absolute -bottom-16 -left-16 w-[250px] h-[250px] rounded-full blur-2xl z-0"
       />
 
-      {/* Force entire container down by 50px */}
       <div
         style={{ position: 'relative', top: '50px' }}
         className="relative flex flex-col-reverse md:flex-row items-center justify-center gap-12 z-10"
@@ -74,37 +71,38 @@ const Contact = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-xl bg-white/60 backdrop-blur-md border border-gray-200 rounded-2xl p-8 shadow-xl"
+          className="w-full max-w-xl bg-gradient-to-br from-white/20 to-white/40 backdrop-blur-lg border border-white/30 rounded-2xl p-8 shadow-lg"
         >
           <div className="flex items-center gap-3 mb-4">
             <Mail className="w-8 h-8 text-[#4fd1c5]" />
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: 'var(--font-panchangMedium)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: 'var(--font-panchangMedium)' }}>
               Get in Touch
             </h2>
           </div>
 
-          <p className="mb-6 text-gray-700 text-base md:text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter)' }}>
+          <p className="mb-6 text-white/80 text-base md:text-lg leading-relaxed" style={{ fontFamily: 'var(--font-inter)' }}>
             Ready to create something extraordinary? <br /> Send me a message, and let's make it happen.
           </p>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-xs font-semibold text-gray-700 uppercase mb-1 font-inter">
+              <label htmlFor="name" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
                 Name
               </label>
               <input
                 id="name"
                 type="text"
                 {...register('name', { required: 'Name is required' })}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md"
+                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md placeholder:text-gray-600 font-inter"
+                placeholder="Your name"
               />
-              {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name.message}</p>}
+              {errors.name && <p className="text-sm text-red-300 mt-1">{errors.name.message}</p>}
             </div>
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-gray-700 uppercase mb-1 font-inter">
+              <label htmlFor="email" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
                 Email
               </label>
               <input
@@ -117,23 +115,25 @@ const Contact = () => {
                     message: 'Invalid email address',
                   },
                 })}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md"
+                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md placeholder:text-gray-600 font-inter"
+                placeholder="your.email@example.com"
               />
-              {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email.message}</p>}
+              {errors.email && <p className="text-sm text-red-300 mt-1">{errors.email.message}</p>}
             </div>
 
             {/* Message */}
             <div>
-              <label htmlFor="message" className="block text-xs font-semibold text-gray-700 uppercase mb-1 font-inter">
+              <label htmlFor="message" className="block text-xs font-semibold text-white/80 uppercase mb-1 font-inter">
                 Message
               </label>
               <textarea
                 id="message"
                 rows={4}
                 {...register('message', { required: 'Message is required' })}
-                className="w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md"
+                className="w-full px-4 py-2 bg-white/90 border border-white/30 rounded-md focus:ring-2 focus:ring-[#4fd1c5] focus:outline-none shadow-sm transition hover:shadow-md font-inter placeholder:text-gray-600"
+                placeholder="Your message here..."
               />
-              {errors.message && <p className="text-sm text-red-600 mt-1">{errors.message.message}</p>}
+              {errors.message && <p className="text-sm text-red-300 mt-1">{errors.message.message}</p>}
             </div>
 
             {/* Submit */}
@@ -163,7 +163,7 @@ const Contact = () => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center justify-center gap-2 text-green-700 mt-3 font-medium"
+                className="flex items-center justify-center gap-2 text-green-300 mt-3 font-medium"
                 role="status"
                 aria-live="polite"
               >
@@ -173,7 +173,7 @@ const Contact = () => {
           </form>
 
           <div className="mt-8 text-center">
-            <p className="text-sm text-gray-700 mb-3">Or connect with me on:</p>
+            <p className="text-sm text-white/80 mb-3">Or connect with me on:</p>
             <div className="flex justify-center gap-4">
               {socials.map((social, i) => (
                 <motion.a
@@ -185,7 +185,7 @@ const Contact = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ scale: 1.2, color: '#4fd1c5' }}
-                  className="text-gray-700"
+                  className="text-white/80 hover:text-white"
                 >
                   {social.icon}
                 </motion.a>
@@ -193,9 +193,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <p className="mt-4 text-center text-sm text-gray-700">
+          <p className="mt-4 text-center text-sm text-white/80">
             Prefer email? Reach me at{' '}
-            <a href="mailto:informal.nimesh@gmail.com" className="text-[#4fd1c5] hover:underline">
+            <a href="mailto:informal.nimesh@gmail.com" className="text-[#0d6c63] hover:underline">
               informal.nimesh@gmail.com
             </a>
           </p>
