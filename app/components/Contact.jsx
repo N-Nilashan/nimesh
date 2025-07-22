@@ -44,15 +44,10 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="relative px-6 md:px-10 py-16 max-w-7xl mx-auto text-gray-900"
+      className="relative px-6 md:px-10 py-16 max-w-7xl mx-auto text-gray-900 overflow-hidden"
     >
       {/* Decorative blobs */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.2 }}
-        className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[#4fd1c5]/30 rounded-full blur-3xl z-0"
-      />
+     
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
