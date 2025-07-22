@@ -53,7 +53,7 @@ const About = () => {
           <motion.h2
             id="about-heading"
             variants={childVariants}
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900/90 to-amber-950 bg-clip-text text-transparent "
             style={{ fontFamily: 'var(--font-panchangMedium)' }}
           >
             About Me

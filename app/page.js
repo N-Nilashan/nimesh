@@ -12,7 +12,7 @@ const HomeSection = () => (
   <section id="home" className="min-h-screen flex flex-col justify-center items-center py-16">
 
       <motion.div
-        className="flex items-center justify-center -mt-28"
+        className="flex items-center justify-center -mt-44"
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}

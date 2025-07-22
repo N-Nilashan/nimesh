@@ -149,11 +149,12 @@ const FullStackBentoGrid = () => {
     <motion.section variants={sectionVariants} className="relative z-10 mb-32">
       <div className="text-center mb-12">
         <p
-          className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-gray-900/90 to-amber-950 bg-clip-text text-transparent tracking-tight"
           style={{ fontFamily: 'var(--font-panchangMedium)' }}
         >
           Full-Stack Applications
         </p>
+
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 -mb-[130px] gap-4 max-w-6xl mx-auto">
@@ -190,7 +191,7 @@ const FullStackBentoGrid = () => {
 
               {/* Content */}
               <motion.div
-                className="absolute inset-0 p-6 flex flex-col bg-gradient-to-br from-gray-900/90 to-[#1f1f1f] text-white"
+                className="absolute inset-0 p-6 flex flex-col bg-gradient-to-br from-gray-900/90 to-amber-800 text-white"
                 variants={contentVariants}
               >
                 <div className="flex justify-between items-start mb-4">
@@ -277,12 +278,12 @@ const LandingPagesCarousel = () => {
     <motion.section variants={sectionVariants} className="relative z-10 mb-32 -mt-[50px]">
       <div className="relative mt-[10px] mx-auto max-w-full sm:max-w-4xl md:max-w-6xl h-[32rem] sm:min-h-[40rem]">
         <div className="text-center mb-8">
-          <p
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text tracking-tight"
-            style={{ fontFamily: 'var(--font-panchangMedium)' }}
-          >
-            Landing Pages
-          </p>
+           <p
+          className="text-3xl sm:text-4xl md:text-5xl font-semibold bg-gradient-to-r from-gray-900/90 to-amber-950 bg-clip-text text-transparent tracking-tight"
+          style={{ fontFamily: 'var(--font-panchangMedium)' }}
+        >
+          Landing Pages
+        </p>
         </div>
 
         <button
