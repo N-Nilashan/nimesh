@@ -69,7 +69,7 @@ export default function Page() {
       <nav className="fixed top-0 left-0 right-0 z-20 bg-white/10 backdrop-blur-md border-b border-gray-300/30">
         <div className="max-w-7xl mx-auto px-10 py-4 flex justify-between items-center">
           <motion.h1
-            className="font-semibold text-2xl text-gray-800"
+            className="font-semibold text-xl text-gray-800"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
