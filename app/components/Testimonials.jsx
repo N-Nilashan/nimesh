@@ -1,28 +1,36 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-
+import { IoMdStar } from "react-icons/io";
 
 const benefitss = [
     {
       ratings:4,
-      title: "Built to Convert",
-      description: "Whether it’s a landing page or a full site, every element is optimized to turn visitors into users, leads, or customers."
+      description: "Whether it’s a landing page or a full site, every element is optimized to turn visitors into users, leads, or customers.",
+      profile:'/hemant.jpg',
+      name:'hemant',
+      work:'Copywriter'
     },
     {
       ratings:5,
-      title: "Fast, Really Fast",
-      description: "No bloated code, no sluggish load times. You get lightning-fast websites that keep users engaged and bounce rates low."
+      description: "No bloated code, no sluggish load times. You get lightning-fast websites that keep users engaged and bounce rates low.",
+      profile:'/hemant.jpg',
+      name:'hemant',
+      work:'Copywriter'
     },
     {
       ratings:4,
-      title: "Pixel-Perfect Polish",
-      description: "Your site will look as good as it performs. I blend clean design with subtle animations to create a premium user experience."
+      description: "Your site will look as good as it performs. I blend clean design with subtle animations to create a premium user experience.",
+      profile:'/hemant.jpg',
+      name:'hemant',
+      work:'Copywriter'
     },
     {
       ratings:5,
-      title: "Meaningful Motion",
-      description: "Animations aren’t just eye candy—they guide users, reinforce branding, and make your site feel alive without slowing it down."
+      description: "Animations aren’t just eye candy—they guide users, reinforce branding, and make your site feel alive without slowing it down.",
+      profile:'/hemant.jpg',
+      name:'hemant',
+      work:'Copywriter'
     },
 
   ];
@@ -72,21 +80,30 @@ const Testimonials = () => {
                         before:bg-blue-500/30
                         before:blur-2xl
                         before:rounded-br-lg
-                        before:translate-x-1/4
-                        before:translate-y-1/4"
+                        before:translate-x-1/28
+                        before:translate-y-1/12"
                     >
 
-                      <div className="text-white mb-6 group-hover:text-blue-400 transition-colors duration-300">
-                        {benefits.icon}
-                      </div>
-                      <h3 className="text-white text-lg font-semibold mb-4 text-left leading-tight">
-                        {benefits.title}
-                      </h3>
+                     <div className="flex mb-2">
+                        {[...Array(benefits.ratings)].map((_, i) => (
+                          <IoMdStar key={i} className="text-yellow-400 text-lg" />
+                        ))}
+                     </div>
+
                       <p className="text-gray-400 text-sm leading-relaxed text-left">
                         {benefits.description}
                       </p>
+                      <div className='flex gap-4 items-center mt-4'>
+                        <img src={benefits.profile} width={50} className='rounded-full '/>
+                        <span className='text-white flex-col justify-center items-center text-left'>
+                          <p>{benefits.name}</p>
+                          <p>{benefits.work}</p>
+                        </span>
+                      </div>
                     </div>
+
                   ))}
+
                 </div>
               </div>
     </div>
