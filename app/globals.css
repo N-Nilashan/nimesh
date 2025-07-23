@@ -27,7 +27,6 @@
 }
 
 body {
-  cursor: url('/cursor.png'), auto;
   font-family: var(--font-inter);
   background: var(--color-background);
   color: var(--color-secondary);

@@ -12,14 +12,14 @@ const benefitss = [
       work:'Copywriter'
     },
     {
-      ratings:5,
+      ratings:4,
       description: "No bloated code, no sluggish load times. You get lightning-fast websites that keep users engaged and bounce rates low.",
       profile:'/hemant.jpg',
       name:'hemant',
       work:'Copywriter'
     },
     {
-      ratings:4,
+      ratings:5,
       description: "Your site will look as good as it performs. I blend clean design with subtle animations to create a premium user experience.",
       profile:'/hemant.jpg',
       name:'hemant',
