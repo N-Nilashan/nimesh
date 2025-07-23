@@ -53,7 +53,7 @@ const Benefits = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-        >Full-Stack Projects</motion.button>
+        >Why work with me?</motion.button>
 
         <motion.h1
           className="text-white text-2xl md:text-2xl font-bold leading-normal mb-4"
