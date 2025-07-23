@@ -132,7 +132,7 @@ const ProjectsNew = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.button
-            className='text-white font-medium border-1 border-gray-900 py-2 px-4 rounded-2xl mb-6'
+            className='text-white font-medium border-1 border-gray-900 py-2 px-4 rounded-2xl mb-6 '
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

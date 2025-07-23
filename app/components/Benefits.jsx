@@ -86,9 +86,9 @@ const Benefits = () => {
               <div className="text-white mb-6 group-hover:text-blue-400 transition-colors duration-300">
                 {benefits.icon}
               </div>
-              <h3 className="text-white text-lg font-semibold mb-4 text-left leading-tight">
+              <p className="text-white text-lg font-semibold mb-4 text-left leading-tight">
                 {benefits.title}
-              </h3>
+              </p>
               <p className="text-gray-400 text-sm leading-relaxed text-left">
                 {benefits.description}
               </p>

@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion'
 import Lottie from 'lottie-react'
 import sphereAnimation from '@/public/sphere-animation.json'
+import { FaXTwitter } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import Navbar from './Navbar'
 
 const Hero = () => {
@@ -61,16 +63,28 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            <motion.button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105 cursor-pointer"
-            whileTap={{ scale: 0.9,duration:0.005 }}
+           <motion.a
+              href="https://x.com/N_Nilashan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105 cursor-pointer
+              flex justify-center items-center gap-2"
+              whileTap={{ scale: 0.9, duration: 0.005 }}
             >
+              <FaXTwitter />
               Get in touch
-            </motion.button>
-            <motion.button className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105"
-            whileTap={{ scale: 0.9,duration:0.005 }}
+            </motion.a>
+
+            <motion.a
+              href="mailto:informal.nimesh@gmail.com"
+              className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105
+              flex justify-center items-center gap-2"
+              whileTap={{ scale: 0.9, duration: 0.005 }}
             >
-              View projects
-            </motion.button>
+              <MdEmail />
+              Email
+            </motion.a>
+
           </motion.div>
         </div>
       </main>

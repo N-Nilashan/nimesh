@@ -1,6 +1,7 @@
 // components/Navbar.js
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { FaXTwitter } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +30,16 @@ const Navbar = () => {
               <Link href="#testimonials" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
                 Testimonials
               </Link>
-              <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+              <a
+                href="https://x.com/N_Nilashan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center gap-2"
+              >
+                <FaXTwitter />
                 Contact
-              </button>
+              </a>
+
             </div>
           </div>
 

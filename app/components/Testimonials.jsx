@@ -37,7 +37,7 @@ const benefitss = [
 
 const Testimonials = () => {
   return (
-    <div className='bg-black text-center min-h-screen'>
+    <div className='bg-black text-center min-h-screen ' id='testimonials'>
       <motion.button className='text-white font-medium border-1  border-gray-900 py-2 px-4 rounded-2xl mb-6 mt-40'
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

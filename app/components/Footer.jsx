@@ -13,26 +13,25 @@ const Footer = () => {
         <h2 className="mb-4">Nimesh Nilashan</h2>
         <p>Let’s build something fast, sharp, and unforgettable.</p>
         <p className="mb-4">Reach out — I’m ready when you are.</p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
+        <a href="https://x.com/N_Nilashan" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">
           Contact
-        </button>
+        </a>
       </div>
-      <div className="flex gap-6 justify-center">
-        <div>
-          <p className="text-white font-semibold">Links</p>
-          <ul className="text-gray-200">
-            <li>About me</li>
-            <li>Projects</li>
-            <li>Testimonials</li>
-            <li>Contact</li>
+      <div className="flex gap-6 justify-center mr-4">
+        <div className='mr-4'>
+          <p className="text-white font-semibold ">Links</p>
+          <ul className="text-gray-200 ">
+            <li className='hover:text-gray-400'><a href="#projects">Projects</a></li>
+            <li className='hover:text-gray-400'><a href="#Testimonials">Testimonials</a></li>
+            <li className='hover:text-gray-400'><a href="#">Contact</a></li>
           </ul>
         </div>
         <div>
           <p className="text-white font-semibold mr-8">Socials</p>
-          <ul className="text-gray-200">
-            <li>Twitter</li>
-            <li>Github</li>
-            <li>LinkedIn</li>
+          <ul className="text-gray-200 ">
+            <li className='hover:text-gray-400'><a href="https://x.com/N_Nilashan">Twitter</a></li>
+            <li className='hover:text-gray-400'><a href='https://github.com/N-Nilashan'>Github</a></li>
+            <li className='hover:text-gray-400'><a href='https://www.linkedin.com/in/nimesh-nilashan/'>LinkedIn</a></li>
           </ul>
         </div>
       </div>
