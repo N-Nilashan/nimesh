@@ -301,7 +301,6 @@ const ProjectsNew = () => {
       </div>
 
 
-      //Full Stack Application section
 
       <div className='text-center' >
         <motion.button className='text-white font-medium border-1  border-gray-900 py-2 px-4 rounded-2xl mb-6 mt-40'
