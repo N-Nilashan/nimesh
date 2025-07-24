@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] h-28 bg-blue-500/20 blur-2xl rounded-full pointer-events-none z-0" />
 
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 mt-6">
         <div className="flex flex-col sm:flex-row justify-between p-6 sm:p-8 border-b border-t items-center sm:items-start">
           <div className="text-white mb-6 sm:mb-0 text-center sm:text-left">
             <h2 className="text-lg sm:text-xl mb-4">Nimesh Nilashan</h2>
@@ -40,7 +40,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between p-4 items-center">
+        <div className="flex flex-col sm:flex-row justify-between p-4 items-center ">
           <p className="text-white text-sm sm:text-base mb-4 sm:mb-0">
             Made with ❤ by{' '}
             <span>
