@@ -6,32 +6,26 @@ import { IoMdStar } from "react-icons/io";
 const benefitss = [
     {
       ratings: 4,
-      description: "Whether it’s a landing page or a full site, every element is optimized to turn visitors into users, leads, or customers.",
+      description: "Working with Nimesh was seamless from start to finish. He translated my vague ideas into a polished site that feels fast, clean, and totally on-brand. If you want a developer who actually gets design, he’s your guy.",
       profile: '/hemant.jpg',
-      name: 'hemant',
+      name: 'Hemant',
       work: 'Copywriter'
     },
     {
       ratings: 4,
-      description: "No bloated code, no sluggish load times. You get lightning-fast websites that keep users engaged and bounce rates low.",
-      profile: '/hemant.jpg',
-      name: 'hemant',
-      work: 'Copywriter'
+      description: "Nimesh took our messy Figma file and turned it into a fully responsive, production-ready site in under a week. The attention to detail, subtle animations, and clean code were way beyond what we expected.",
+      profile: '/perera.png',
+      name: 'Perera',
+      work: 'Creative Designer'
     },
     {
       ratings: 5,
-      description: "Your site will look as good as it performs. I blend clean design with subtle animations to create a premium user experience.",
-      profile: '/hemant.jpg',
-      name: 'hemant',
-      work: 'Copywriter'
+      description: "I’ve worked with developers before, but Nimesh was the first who truly understood both the technical and visual sides of the project.",
+      profile: '/test.jpeg',
+      name: 'Tharush',
+      work: 'Figma Expert'
     },
-    {
-      ratings: 5,
-      description: "Animations aren’t just eye candy—they guide users, reinforce branding, and make your site feel alive without slowing it down.",
-      profile: '/hemant.jpg',
-      name: 'hemant',
-      work: 'Copywriter'
-    },
+
 ];
 
 const Testimonials = () => {
