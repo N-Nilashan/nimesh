@@ -1,8 +1,26 @@
 'use client'
+
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
-import Image from 'next/image';
+import { TwitterTweetEmbed } from 'react-twitter-embed'
+import { FaArrowUpRightFromSquare } from "react-icons/fa6"
+import Image from 'next/image'
+
+// --- Project Data ---
+const redesigns = [
+  {
+    id: 1,
+    title: "Skylane Hero Section",
+    description: "Rebuilt from a clean SaaS design shared on X. Focused on layout structure, attention hierarchy, and responsive execution.",
+    date: "July 15, 2025",
+    techStack: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    image: "/projects/skylane.png",
+    tweetUrl: "https://x.com/ShruPosts/status/1946260450687262851",
+    liveLink: "https://skylane-hero.netlify.app"
+  },
+]
+
+const extractTweetId = (url) => url.split('/').pop()
 
 const fullStackApps = [
   {
@@ -44,7 +62,7 @@ const fullStackApps = [
     techStack: ["Next.js", "Three.js", "GSAP", "TailwindCSS"],
     category: "Cloned Project",
     link: "https://apple-clone-site-phi.vercel.app/"
-  }
+  },
 ]
 
 const sectionVariants = {
@@ -58,257 +76,156 @@ const sectionVariants = {
     }
   }
 }
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-}
 
 const cardVariants = {
-  initial: { opacity: 1, y: 0 },
+  initial: { opacity: 1, y: 0, scale: 1 },
   hover: {
     opacity: 1,
     y: -5,
+    scale: 1.02,
     transition: { duration: 0.3 }
   }
 }
 
 const ProjectsNew = () => {
   return (
-    <div className='bg-black h-full' id='projects'>
-      <div className='text-center' >
-        <motion.button className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6 mt-4'
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >My Projects</motion.button>
+    <div className="bg-black h-full" id="projects">
 
-        <motion.h1
-          className="text-white text-2xl md:text-2xl font-bold leading-normal mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          Websites that do more than look good. <br className="hidden md:block" />They perform.
-        </motion.h1>
-
-        <motion.p
-          className="text-gray-300 text-lg md:text-sm max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-        >
-          Browse selected projects built for brands and startups. Each one is fast, responsive, and conversion-focused.
-        </motion.p>
-      </div>
-
-      <div id='landing-pages' className='flex flex-col md:flex-row gap-11 items-center justify-center mt-14 px-4'>
-        <motion.div
-          className='bg-[#0a0a0a] w-[360px] h-[300px] border-0 rounded-2xl pr-6 pl-6 pt-6 order-1 md:order-none'
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src='/projects/skylane.png'
-            alt='Project thumbnail'
-            className='w-full h-full object-cover rounded-xl fade-bottom'
-          />
-          <div className='absolute bottom-0 left-0 w-full h-[20%] bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none rounded-b-xl' />
-        </motion.div>
-
-        <motion.div
-          className='text-white w-[360px] md:w-[400px] order-2 md:order-none'
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+      {/* ─────────────────────────── UI Replicas Section ─────-───────────────────── */}
+      <section className="px-4 md:px-12 mb-28" id="ui-replicas">
+        <div className="text-center mb-12">
+          <motion.h2
+            className="text-white text-3xl font-bold mb-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >Hero Image</motion.button>
-
-          <p className='font-panchangMedium -mt-1 text-2xl'>Figma to code</p>
-          <p className='text-gray-300 mt-2 mb-6'>This is a recreation of a Figma design using Tailwind CSS and React. Built to capture the user's attention.</p>
-
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mr-3 bg-[#0a0a0a]'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            UI Replicas From Design Inspiration
+          </motion.h2>
+          <motion.p
+            className="text-gray-400 text-md max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >NextJs</motion.button>
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Pixel-perfect recreations of unique designs shared online. Built to push frontend precision and interaction fidelity.
+          </motion.p>
+        </div>
 
-          <motion.button
-            className='bg-[#0a0a0a] text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >Tailwind CSS</motion.button>
+        <div className="space-y-8 max-w-3xl mx-auto ">
+          {redesigns.map((project) => (
+            <motion.div
+              key={project.id}
+              className="grid grid-cols-2 md:grid-cols-2  gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* Grid 1: Project Image */}
+              <motion.div
+                className="relative h-48 rounded-2xl overflow-hidden border border-[#1f1f1f] shadow-lg"
+                variants={cardVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute top-2 left-2 text-xs bg-white/10 px-2 py-1 rounded text-white backdrop-blur-sm">
+                  Inspired by <a href={project.tweetUrl} className="underline" target="_blank">X Post</a>
+                </div>
+              </motion.div>
 
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl ml-3 bg-[#0a0a0a] mb-4'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >React</motion.button><br />
-          <div className='flex justify-between'>
-            <span className='font-panchangMedium'>July 15 2025</span>
-            <a href='https://skylane-hero.netlify.app/'><span className='flex items-center gap-3 cursor-pointer'>Live Site <FaArrowUpRightFromSquare /></span></a>
-          </div>
-        </motion.div>
-      </div>
+              {/* Grid 2: Project Details */}
+              <motion.div
+                className="bg-[#111] p-4 rounded-2xl border border-[#1f1f1f] shadow-lg text-white flex flex-col justify-between"
+                variants={cardVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <div>
+                  <h3 className="text-lg font-bold mb-2">{project.title}</h3>
+                  <p className=" text-gray-400 mb-3 line-clamp-3">{project.description}</p>
+                </div>
+                <div className="flex justify-between items-center mt-2">
+                  <span className="text-xs font-panchangMedium text-shadow-white">{project.date}</span>
+                  <motion.a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-blue-400 border border-blue-400 px-3 py-1 rounded-lg hover:bg-blue-400/10 flex items-center gap-1"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Live Site <FaArrowUpRightFromSquare />
+                  </motion.a>
+                </div>
+              </motion.div>
 
-      <div id='full-stack' className='flex flex-col md:flex-row gap-11 items-center justify-center mt-14 px-4'>
-        <motion.div
-          className='text-white w-[360px] md:w-[400px] order-2 md:order-none'
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >Hero Image</motion.button>
+              {/* Grid 3: Twitter Embed */}
+              <motion.div
+                className="bg-[#111] p-4 rounded-2xl border border-[#1f1f1f] shadow-lg"
+                variants={cardVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="text-sm font-bold text-white">Inspiration</h3>
+                </div>
+                <div className="h-36 overflow-y-auto">
+                  <TwitterTweetEmbed tweetId={extractTweetId(project.tweetUrl) || ''} />
+                </div>
+              </motion.div>
 
-          <p className='font-panchangMedium -mt-1 text-2xl'>Figma to code</p>
-          <p className='text-gray-300 mt-2 mb-6'>This is a recreation of a Figma design using Tailwind CSS and React. Built to capture the user's attention.</p>
-
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mr-3 bg-[#0a0a0a]'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >NextJs</motion.button>
-
-          <motion.button
-            className='bg-[#0a0a0a] text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >Tailwind CSS</motion.button>
-
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl ml-3 bg-[#0a0a0a] mb-4'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >React</motion.button>
-          <div className='flex justify-between'>
-            <span className='font-panchangMedium'>July 10 2025</span>
-            <a href='https://sayfully-hero.netlify.app/'><span className='flex items-center gap-3 cursor-pointer'>Live Site <FaArrowUpRightFromSquare /></span></a>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className='bg-[#0a0a0a] w-[360px] h-[300px] border-0 rounded-2xl pr-6 pl-6 pt-6 overflow-hidden order-1 md:order-none'
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src='/projects/sayfully.png'
-            alt='Project thumbnail'
-            className='w-full h-full object-cover rounded-xl fade-bottom'
-          />
-        </motion.div>
-      </div>
-
-      <div className='flex flex-col md:flex-row gap-11 items-center justify-center mt-14 px-4'>
-        <motion.div
-          className='bg-[#0a0a0a] w-[360px] h-[300px] border-0 rounded-2xl pr-6 pl-6 pt-6 order-1 md:order-none'
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <img
-            src='/projects/pulse.png'
-            alt='Project thumbnail'
-            className='w-full h-full object-cover rounded-xl fade-bottom'
-          />
-        </motion.div>
-
-        <motion.div
-          className='text-white w-[360px] md:w-[400px] order-2 md:order-none'
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >Hero Image</motion.button>
-
-          <p className='font-panchangMedium -mt-1 text-2xl'>Figma to code</p>
-          <p className='text-gray-300 mt-2 mb-6'>This is a recreation of a Figma design using Tailwind CSS and React. Built to capture the user's attention.</p>
-
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mr-3 bg-[#0a0a0a]'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >NextJs</motion.button>
-
-          <motion.button
-            className='bg-[#0a0a0a] text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >Tailwind CSS</motion.button>
-
-          <motion.button
-            className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl ml-3 bg-[#0a0a0a] mb-4'
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >React</motion.button>
-          <div className='flex justify-between'>
-            <span className='font-panchangMedium'>July 7 2025</span>
-            <a href='https://pulseai-hero.netlify.app/'><span className='flex items-center gap-3 cursor-pointer'>Live Site <FaArrowUpRightFromSquare /></span></a>
-          </div>
-        </motion.div>
-      </div>
+              {/* Grid 4: Tech Stack */}
+              <motion.div
+                className="bg-[#0a0a0a] p-4 rounded-2xl border border-gray-900 text-white"
+                variants={cardVariants}
+                initial="initial"
+                whileHover="hover"
+              >
+                <h3 className="font-medium mb-3 text-white font-panchangMedium ">Tech Stack</h3>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <motion.span
+                      key={tech}
+                      className="text-xs font-medium px-3 py-2 rounded-2xl border border-gray-900 bg-[#0a0a0a]"
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: "#111111",
+                        transition: { duration: 0.2 }
+                      }}
+                      transition={{ duration: 0.1 }}
+                    >
+                      {tech}
+                    </motion.span>
+                  ))}
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       <div className='text-center'>
-        <motion.button className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6 mt-40'
+        <motion.button
+          className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6 mt-40'
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.5 }}
-        >Full-Stack Projects</motion.button>
+        >
+          Full-Stack Projects
+        </motion.button>
 
         <motion.h1
-          className="text-white text-2xl md:text-2xl font-bold leading-normal mb-4"
+          className="text-white text-2xl md:text-3xl font-bold leading-normal mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -318,7 +235,7 @@ const ProjectsNew = () => {
         </motion.h1>
 
         <motion.p
-          className="text-gray-300 text-lg md:text-sm max-w-2xl mx-auto"
+          className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -327,94 +244,81 @@ const ProjectsNew = () => {
           These full-stack projects go beyond the UI—handling logic, data, and performance across the stack. Built to scale, ship fast, and solve real problems.
         </motion.p>
 
-        <motion.section variants={sectionVariants} className="container mb-16 px-4">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto">
-            {fullStackApps.map((project) => (
+        <div className='mt-14 px-4 max-w-6xl mx-auto'>
+          {fullStackApps.map((project, index) => (
+            <React.Fragment key={project.id}>
               <motion.div
-                key={project.id}
-                className="flex flex-col max-w-md mx-auto w-full"
-                initial="initial"
-                whileHover={{ y: -5 }}
-                variants={cardVariants}
+                className={`flex flex-col md:flex-row gap-11 items-stretch justify-center mt-14 px-4 w-full ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
-                {/* Image for both mobile and desktop */}
-                <div className="relative h-[300px] rounded-xl overflow-hidden bg-[#0a0a0a] border-0">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                {/* Desktop: Hover overlay */}
+                {/* Text Content - will dictate the height */}
                 <motion.div
-                  className="hidden md:block absolute inset-0 p-6 flex flex-col bg-[#0a0a0a] text-white"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
+                  className='text-white w-full md:w-[430px] order-2 md:order-none border-[#111] border-2 p-4 rounded-2xl flex flex-col'
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
                 >
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold">{project.title}</h3>
-                    <span className="text-sm px-2 py-1 bg-[var(--color-background)]/20 rounded-full">
+                  <div className="text-left">
+                    <motion.span
+                      className='inline-block text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl mb-6'
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                    >
                       {project.category}
-                    </span>
+                    </motion.span>
                   </div>
 
-                  <p className="text-md mb-4 line-clamp-5 text-left">{project.description}</p>
+                  <p className='font-panchangMedium text-left -mt-1 text-2xl'>{project.title}</p>
+                  <p className='text-gray-300 text-left mt-2 mb-6'>{project.description}</p>
 
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.techStack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="text-xs px-4 py-3 border border-gray-900 bg-black rounded-2xl"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
+                  <div className='flex flex-wrap gap-3 mb-4'>
+                    {project.techStack.map((tech, techIndex) => (
+                      <motion.button
+                        key={techIndex}
+                        className='text-white font-medium border border-gray-900 py-2 px-4 rounded-2xl bg-[#0a0a0a]'
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + techIndex * 0.1, duration: 0.5 }}
+                      >
+                        {tech}
+                      </motion.button>
+                    ))}
+                  </div>
 
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs opacity-80">{project.date}</span>
-                      <a href={project.link}><span className='flex items-center gap-3 cursor-pointer'>Live Site <FaArrowUpRightFromSquare /></span></a>
-                    </div>
+                  <div className='flex justify-between mt-auto'>
+                    <span className='font-panchangMedium'>{project.date}</span>
+                    <a href={project.link}>
+                      <span className='flex items-center gap-3 cursor-pointer'>
+                        Live Site <FaArrowUpRightFromSquare />
+                      </span>
+                    </a>
                   </div>
                 </motion.div>
 
-                {/* Mobile: Static content below image */}
-                <div className="md:hidden p-6 flex flex-col bg-[#0a0a0a] text-white">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold">{project.title}</h3>
-                    <span className="text-sm px-2 py-1 bg-[var(--color-background)]/20 rounded-full">
-                      {project.category}
-                    </span>
+                {/* Image Container - will match text height */}
+                <motion.div
+                  className='bg-[#0a0a0a] w-full md:w-[440px] border-0 rounded-2xl overflow-hidden order-1 md:order-none flex'
+                  initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <div className='w-full h-full relative'>
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className='object-cover rounded-xl'
+                    />
                   </div>
-
-                  <p className="text-md mb-4 text-left">{project.description}</p>
-
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.techStack.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="text-xs px-4 py-3 border border-gray-900 bg-black rounded-2xl"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs opacity-80">{project.date}</span>
-                      <a href={project.link}><span className='flex items-center gap-3 cursor-pointer'>Live Site <FaArrowUpRightFromSquare /></span></a>
-                    </div>
-                  </div>
-                </div>
+                </motion.div>
               </motion.div>
-            ))}
-          </div>
-        </motion.section>
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </div>
   )
