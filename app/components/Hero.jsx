@@ -1,10 +1,10 @@
-'use client'
-import { motion } from 'framer-motion'
-import Lottie from 'lottie-react'
-import sphereAnimation from '@/public/sphere-animation.json'
-import { FaXTwitter } from "react-icons/fa6";
+"use client";
+import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import sphereAnimation from "@/public/sphere-animation.json";
+import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import Navbar from './Navbar'
+import Navbar from "./Navbar";
 
 const Hero = () => {
   return (
@@ -13,7 +13,7 @@ const Hero = () => {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='stars' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='white' cx='25' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='75' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='25' cy='75' r='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='black'/%3E%3Crect width='100%25' height='100%25' fill='url(%23stars)' opacity='0.5'/%3E%3C/svg%3E")`
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='stars' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='white' cx='25' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='75' r='0.5'/%3E%3Ccircle fill='white' cx='75' cy='25' r='0.5'/%3E%3Ccircle fill='white' cx='25' cy='75' r='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='black'/%3E%3Crect width='100%25' height='100%25' fill='url(%23stars)' opacity='0.5'/%3E%3C/svg%3E")`,
         }}
       />
 
@@ -33,7 +33,8 @@ const Hero = () => {
             animationData={sphereAnimation}
             loop
             autoplay
-            className="w-full max-w-[600px] opacity-30 pointer-events-none"
+            aria-hidden
+            className="w-full max-w-[600px] opacity-25 pointer-events-none"
           />
         </motion.div>
 
@@ -45,7 +46,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            I build websites that move fast <br className="hidden md:block" />and sell hard
+            I secure digital landscapes <br className="hidden md:block" />and protect data
           </motion.h1>
 
           <motion.p
@@ -54,7 +55,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            I help startups and brands turn visitors into users with clean code and sharp animations.
+            I help organizations safeguard their systems, identify vulnerabilities, and prevent cyber threats with practical solutions and hands-on expertise.
           </motion.p>
 
           <motion.div
@@ -63,33 +64,64 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-           <motion.a
-              href="https://x.com/N_Nilashan"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105 cursor-pointer
-              flex justify-center items-center gap-2"
+            <motion.a
+              href="#projects"
+              aria-label="View security projects"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105 cursor-pointer flex justify-center items-center gap-2"
               whileTap={{ scale: 0.9, duration: 0.005 }}
             >
-              <FaXTwitter />
-              Get in touch
+              View Security Projects
             </motion.a>
 
             <motion.a
               href="mailto:informal.nimesh@gmail.com"
-              className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105
-              flex justify-center items-center gap-2"
+              aria-label="Email Nimesh"
+              className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105 flex justify-center items-center gap-2"
               whileTap={{ scale: 0.9, duration: 0.005 }}
             >
               <MdEmail />
-              Email
+              Contact
             </motion.a>
 
+            <motion.a
+              href="https://www.linkedin.com/in/nimesh-nilashan/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Connect on LinkedIn"
+              className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105 flex justify-center items-center gap-2"
+              whileTap={{ scale: 0.9, duration: 0.005 }}
+            >
+              <FaLinkedin />Connect
+            </motion.a>
+          </motion.div>
+
+          {/* Security Highlights */}
+          <motion.div
+            className="flex flex-wrap gap-2 justify-center mt-2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            aria-label="Security focus areas"
+          >
+            {[
+              "Web App Security",
+              "Vulnerability Assessment",
+              "Threat Modeling",
+              "Secure Engineering",
+              "Cloud Hardening",
+            ].map((tag) => (
+              <span
+                key={tag}
+                className="text-xs text-gray-300 px-3 py-1 rounded-2xl border border-[#1f1f1f] bg-[#0a0a0a]"
+              >
+                {tag}
+              </span>
+            ))}
           </motion.div>
         </div>
       </main>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
