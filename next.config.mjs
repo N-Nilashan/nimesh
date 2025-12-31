@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack(config) {
+  webpack: (config) => {
     config.node = {
       ...config.node,
       global: true,

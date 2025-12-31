@@ -46,7 +46,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            I secure digital landscapes <br className="hidden md:block" />and protect data
+            Learning to secure digital landscapes{" "}
+            <br className="hidden md:block" />
+            and protect data
           </motion.h1>
 
           <motion.p
@@ -55,7 +57,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            I help organizations safeguard their systems, identify vulnerabilities, and prevent cyber threats with practical solutions and hands-on expertise.
+            Documenting my journey in cybersecurity as I explore system
+            protection, vulnerability assessment, and threat prevention through
+            hands-on projects and continuous learning.
           </motion.p>
 
           <motion.div
@@ -70,7 +74,7 @@ const Hero = () => {
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-all transform hover:scale-105 cursor-pointer flex justify-center items-center gap-2"
               whileTap={{ scale: 0.9, duration: 0.005 }}
             >
-              View Security Projects
+              View My Learning Projects
             </motion.a>
 
             <motion.a
@@ -91,7 +95,8 @@ const Hero = () => {
               className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105 flex justify-center items-center gap-2"
               whileTap={{ scale: 0.9, duration: 0.005 }}
             >
-              <FaLinkedin />Connect
+              <FaLinkedin />
+              Connect
             </motion.a>
           </motion.div>
 
