@@ -41,26 +41,63 @@ const Hero = () => {
         {/* Text Content Overlay */}
         <div className="relative z-10 text-center space-y-6 max-w-4xl">
           <motion.h1
-            className="text-white text-4xl md:text-4xl font-bold leading-tight"
+            className="text-white mt-[90px] text-4xl md:text-5xl font-bold leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Learning to secure digital landscapes{" "}
-            <br className="hidden md:block" />
-            and protect data
+            Cybersecurity-Focused IT Student at SLIIT
           </motion.h1>
 
           <motion.p
-            className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto"
+            className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Documenting my journey in cybersecurity as I explore system
-            protection, vulnerability assessment, and threat prevention through
-            hands-on projects and continuous learning.
+            Driven by a passion for cybersecurity and the challenge of
+            protecting digital systems through ethical practice. Pursuing Google
+            Cybersecurity certification while developing Python security
+            automation tools including port scanners, log analyzers, and threat
+            detection systems.
           </motion.p>
+
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+          >
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5">
+              <h3 className="text-blue-400 font-semibold text-lg mb-2">
+                Core Strengths
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Self-directed learning and analytical problem-solving in
+                penetration testing and digital forensics
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5">
+              <h3 className="text-blue-400 font-semibold text-lg mb-2">
+                Values
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Integrity in security work and continuous improvement, using
+                technical skills responsibly to protect
+              </p>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5">
+              <h3 className="text-blue-400 font-semibold text-lg mb-2">
+                Focus Areas
+              </h3>
+              <p className="text-gray-300 text-sm leading-relaxed">
+                Python scripting, network analysis, vulnerability assessment,
+                and proactive defense strategies
+              </p>
+            </div>
+          </motion.div>
 
           <motion.div
             className="flex flex-wrap gap-4 justify-center"
