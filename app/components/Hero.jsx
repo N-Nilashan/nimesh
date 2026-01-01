@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import sphereAnimation from "@/public/sphere-animation.json";
-import { FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import Navbar from "./Navbar";
 

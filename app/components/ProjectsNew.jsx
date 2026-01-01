@@ -47,17 +47,6 @@ const fullStackApps = [
     link: "https://choosy-ai.vercel.app",
   },
   {
-    id: 2,
-    title: "AI-Powered Note Taking App",
-    description:
-      "Note organization system that allows users to store and categorize their thoughts effortlessly. Leveraging the Gemini API, it provides intelligent summarization capabilities.",
-    image: "/noteapp.png",
-    date: "April 4, 2025",
-    techStack: ["Next.js", "TailwindCSS", "Gemini API", "MongoDB"],
-    category: "Automation",
-    link: "https://note-taker-ai.vercel.app/",
-  },
-  {
     id: 3,
     title: "Expense Tracker",
     description:
@@ -68,6 +57,17 @@ const fullStackApps = [
     category: "Personal Tool",
     link: "https://spend-sense-eight.vercel.app/",
   },
+  {
+    id: 2,
+    title: "AI-Powered Note Taking App",
+    description:
+      "Note organization system that allows users to store and categorize their thoughts effortlessly. Leveraging the Gemini API, it provides intelligent summarization capabilities.",
+    image: "/noteapp.png",
+    date: "April 4, 2025",
+    techStack: ["Next.js", "TailwindCSS", "Gemini API", "MongoDB"],
+    category: "Automation",
+    link: "https://note-taker-ai.vercel.app/",
+  }
 ];
 
 const sectionVariants = {
