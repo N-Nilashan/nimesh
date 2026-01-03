@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="text-white mb-6 sm:mb-0 text-center sm:text-left">
             <h2 className="text-lg sm:text-xl mb-4">Nimesh Nilashan</h2>
             <p className="text-sm sm:text-base">
-              Passionate about cybersecurit.y
+              Passionate about cybersecurity
             </p>
             <p className="text-sm sm:text-base mb-4">
               I help protect digital spaces and safeguard data.
@@ -34,7 +34,7 @@ const Footer = () => {
                 <li className="hover:text-gray-400">
                   <a href="#projects">Projects</a>
                 </li>
-                
+
                 <li className="hover:text-gray-400">
                   <a href="#">Contact</a>
                 </li>
