@@ -115,7 +115,7 @@ const Hero = () => {
             </motion.a>
 
             <motion.a
-              href="mailto:informal.nimesh@gmail.com"
+              href="mailto:nimesh.nilashan@gmail.com"
               aria-label="Email Nimesh"
               className="border border-white hover:bg-white/10 text-white px-8 py-3 rounded-md font-medium transition-all transform cursor-pointer hover:scale-105 flex justify-center items-center gap-2"
               whileTap={{ scale: 0.9, duration: 0.005 }}
