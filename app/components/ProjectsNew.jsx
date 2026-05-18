@@ -13,7 +13,7 @@ const cyberProjects = [
     title: "OSINT Reconnaissance Tool",
     description:
       "A Python-based OSINT tool that automates information gathering on any domain or IP. Pulls WHOIS data, DNS records, subdomains, breach database checks via HaveIBeenPwned API, and reputation scores via VirusTotal API. Aggregates all findings into a clean markdown reconnaissance report — replicating the first phase of a real penetration test.",
-    date: "2026",
+    date: "April 2026",
     techStack: ["Python", "WHOIS", "DNS", "VirusTotal API", "HaveIBeenPwned API"],
     image: "/projects/osinttool.png", // ADD YOUR IMAGE HERE
     github: "https://github.com/N-Nilashan/osint-recon-tool",
@@ -24,7 +24,7 @@ const cyberProjects = [
     title: "Log Analysis & Threat Detection Tool",
     description:
       "A Python tool that parses Apache and Nginx web server logs and automatically detects suspicious activity — including SQL injection attempts, directory traversal attacks, XSS attempts, and brute force login patterns. Generates a structured HTML security report with all findings categorized by severity.",
-    date: "2026",
+    date: "March 2026",
     techStack: ["Python", "Regex", "Log Parsing", "HTML Reports", "Threat Detection"],
     image: "/projects/log-analyzer.png", // ADD YOUR IMAGE HERE
     github: "https://github.com/N-Nilashan/log-analyzer",
@@ -35,7 +35,7 @@ const cyberProjects = [
     title: "Multi-Threaded Port Scanner",
     description:
       "A Python-based port scanner that scans a target IP for open ports using multi-threading for high-speed performance. Identifies running services on open ports, performs banner grabbing to capture service information, and exports results to a scan report. Built for network security assessments and penetration testing reconnaissance.",
-    date: "2026",
+    date: "February 2026",
     techStack: ["Python", "Socket", "Threading", "argparse", "Colorama"],
     image: "/projects/port.png", // ADD YOUR IMAGE HERE
     github: "https://github.com/N-Nilashan/multi-threaded-port-scanner",
