@@ -56,8 +56,7 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             Driven by a passion for cybersecurity and the challenge of
-            protecting digital systems through ethical practice. Pursuing Google
-            Cybersecurity certification while developing Python security
+            protecting digital systems through ethical practice. Pursuing CompTIA Security+ certification while developing Python security
             automation tools including port scanners, log analyzers, and threat
             detection systems.
           </motion.p>
@@ -135,30 +134,6 @@ const Hero = () => {
               <FaLinkedin />
               Connect
             </motion.a>
-          </motion.div>
-
-          {/* Security Highlights */}
-          <motion.div
-            className="flex flex-wrap gap-2 justify-center mt-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            aria-label="Security focus areas"
-          >
-            {[
-              "Web App Security",
-              "Vulnerability Assessment",
-              "Threat Modeling",
-              "Secure Engineering",
-              "Cloud Hardening",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="text-xs text-gray-300 px-3 py-1 rounded-2xl border border-[#1f1f1f] bg-[#0a0a0a]"
-              >
-                {tag}
-              </span>
-            ))}
           </motion.div>
         </div>
       </main>
